@@ -1,11 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
 	const matchLab = document.getElementById("matchLab");
-	let lastGameTouch = 0;
-	matchLab.addEventListener("touchend", (event) => {
-		const now = Date.now();
-		if (now - lastGameTouch < 320) event.preventDefault();
-		lastGameTouch = now;
-	}, { passive: false });
 	const sections = document.querySelectorAll("#facilities, #experience, #contact");
 	const navLinks = document.querySelectorAll(".main-nav a");
 	if ("IntersectionObserver" in window) {
@@ -62,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		if (!challengeStarted) return;
 		challengeActive = false;
 		challengeStarted = false;
+		challengeButton.disabled = false;
 		rollLocked = false;
 		rollButton.disabled = true;
 		rollButton.classList.add("is-hidden");
@@ -100,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		updateScoreboard();
 	});
 	document.getElementById("resetScore").addEventListener("click", () => {
-		runs = 0; wickets = 0; balls = 0; streak = 0; challengeStarted = false; if (challengeActive) { challengeActive = false; clearInterval(challengeTimer); } rollLocked = false; rollButton.disabled = true; rollButton.classList.add("is-hidden"); rollButton.classList.remove("batting-action", "bowling-action"); scoreboard.classList.remove("celebrate", "disappoint", "boundary-four", "boundary-six"); resultToast.classList.remove("show", "disappoint", "boundary-four", "boundary-six"); resultToast.textContent = ""; resultModal.classList.remove("open"); resultModal.setAttribute("aria-hidden", "true"); timeLeft = 20; diceFace.textContent = "5"; diceFace.classList.remove("bat-icon"); rollLabel.textContent = "Play the shot"; challengeButton.textContent = "Start challenge"; labNote.textContent = "Start a challenge, then roll each delivery."; updateScoreboard();
+		runs = 0; wickets = 0; balls = 0; streak = 0; challengeStarted = false; if (challengeActive) { challengeActive = false; clearInterval(challengeTimer); } rollLocked = false; rollButton.disabled = true; rollButton.classList.add("is-hidden"); rollButton.classList.remove("batting-action", "bowling-action"); challengeButton.disabled = false; scoreboard.classList.remove("celebrate", "disappoint", "boundary-four", "boundary-six"); resultToast.classList.remove("show", "disappoint", "boundary-four", "boundary-six"); resultToast.textContent = ""; resultModal.classList.remove("open"); resultModal.setAttribute("aria-hidden", "true"); timeLeft = 20; diceFace.textContent = "5"; diceFace.classList.remove("bat-icon"); rollLabel.textContent = "Play the shot"; challengeButton.textContent = "Start challenge"; labNote.textContent = "Start a challenge, then roll each delivery."; updateScoreboard();
 	});
 	document.getElementById("targetRate").addEventListener("input", (event) => { targetRate = Number(event.target.value); updateScoreboard(); });
 	document.querySelectorAll(".mode-choice").forEach((button) => button.addEventListener("click", () => {
@@ -118,7 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		labNote.textContent = mode === "BATTING" ? "Chase 50 runs before the clock reaches zero." : "Take 3 wickets before the clock reaches zero.";
 	}));
 	challengeButton.addEventListener("click", () => {
-		runs = 0; wickets = 0; balls = 0; streak = 0; timeLeft = 20; challengeActive = true; challengeStarted = true; rollLocked = false; rollButton.disabled = false; rollButton.classList.remove("is-hidden"); diceFace.classList.toggle("bat-icon", mode === "BATTING"); rollButton.classList.toggle("batting-action", mode === "BATTING"); rollButton.classList.toggle("bowling-action", mode === "BOWLING"); rollLabel.textContent = mode === "BATTING" ? "Play the shot" : "Deliver the ball"; challengeButton.textContent = "Challenge live"; labNote.textContent = mode === "BATTING" ? "Chase 50 runs before the clock reaches zero. Roll the delivery." : "Take 3 wickets before the clock reaches zero. Roll the delivery."; resultModal.classList.remove("open"); resultModal.setAttribute("aria-hidden", "true"); updateScoreboard();
+		if (challengeActive) return;
+		runs = 0; wickets = 0; balls = 0; streak = 0; timeLeft = 20; challengeActive = true; challengeStarted = true; challengeButton.disabled = true; rollLocked = false; rollButton.disabled = false; rollButton.classList.remove("is-hidden"); diceFace.classList.toggle("bat-icon", mode === "BATTING"); rollButton.classList.toggle("batting-action", mode === "BATTING"); rollButton.classList.toggle("bowling-action", mode === "BOWLING"); rollLabel.textContent = mode === "BATTING" ? "Play the shot" : "Deliver the ball"; challengeButton.textContent = "Challenge live"; labNote.textContent = mode === "BATTING" ? "Chase 50 runs before the clock reaches zero. Roll the delivery." : "Take 3 wickets before the clock reaches zero. Roll the delivery."; resultModal.classList.remove("open"); resultModal.setAttribute("aria-hidden", "true"); updateScoreboard();
 		clearInterval(challengeTimer);
 		challengeTimer = setInterval(() => { timeLeft -= 1; timeDisplay.textContent = timeLeft; if (timeLeft <= 0) finishChallenge(false); }, 1000);
 	});
