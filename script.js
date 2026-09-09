@@ -9,6 +9,30 @@ document.addEventListener("DOMContentLoaded", () => {
 		sections.forEach((section) => observer.observe(section));
 	}
 
+	function copyTextFallback(text) {
+		const helper = document.createElement("textarea");
+		helper.value = text;
+		helper.style.position = "fixed";
+		helper.style.opacity = "0";
+		document.body.appendChild(helper);
+		helper.select();
+		document.execCommand("copy");
+		helper.remove();
+		return Promise.resolve();
+	}
+	function copyText(text) {
+		if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text).catch(() => copyTextFallback(text));
+		return copyTextFallback(text);
+	}
+	document.querySelectorAll(".copy-contact").forEach((button) => button.addEventListener("click", () => {
+		copyText(button.dataset.copy).then(() => {
+			const label = button.querySelector(".copy-label");
+			button.classList.add("copied");
+			if (label) label.textContent = "Copied";
+			setTimeout(() => { button.classList.remove("copied"); if (label) label.textContent = "Copy"; }, 1600);
+		});
+	}));
+
 	let runs = 0;
 	let wickets = 0;
 	let balls = 0;
