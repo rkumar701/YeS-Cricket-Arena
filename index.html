@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="description" content="YES Cricket Arena - premium cricket grounds, coaching, and match-day experiences.">
   <meta name="theme-color" content="#101415">
   <title>YES Cricket Arena | Play Your Best Game</title>
@@ -25,12 +28,8 @@
       <a href="#contact">Contact</a>
     </nav>
     <div class="header-contact"><a href="tel:+917827444706"><span aria-hidden="true">&#9742;</span> +91 78274 44706</a><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=yescricketarena26@gmail.com" target="_blank" rel="noopener"><span aria-hidden="true">&#9993;</span> yescricketarena26@gmail.com</a></div>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">☰</button>
     <a class="header-cta" href="#contact">Call to enquire <span aria-hidden="true">↗</span></a>
   </header>
-  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-    <a href="#facilities">The arena</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
-  </nav>
 
   <main id="top">
     <section class="hero">
@@ -78,7 +77,7 @@
         <div class="score-meta"><span>Overs <b id="oversDisplay">0.0</b></span><span>Run rate <b id="runRateDisplay">0.00</b></span><span><label id="targetMetricLabel">Target rate</label> <b id="targetDisplay">8.0</b></span></div>
         <div class="over-dots" id="overDots" aria-label="Balls played"><i></i><i></i><i></i><i></i><i></i><i></i></div>
         <div class="result-toast" id="resultToast" aria-live="polite"></div>
-        <div class="score-controls"><button class="roll-button is-hidden" type="button" id="rollDelivery" disabled><span class="dice-face" id="diceFace">⚄</span> Roll delivery</button><button type="button" id="resetScore">Reset innings</button></div>
+        <div class="score-controls"><button class="roll-button is-hidden" type="button" id="rollDelivery" disabled><span class="dice-face" id="diceFace">5</span><span><b id="rollLabel">Play the shot</b><small>Roll for outcome</small></span></button><button type="button" id="resetScore">Reset innings</button></div>
         <button class="challenge-button" type="button" id="challengeButton">Start challenge</button>
       </div>
       <div class="lab-controls">
