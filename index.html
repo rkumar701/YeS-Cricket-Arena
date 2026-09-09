@@ -53,7 +53,7 @@
     <section class="contact-strip" id="contact">
       <div class="contact-heading"><span class="live-dot"></span><div><small>Bookings by phone</small><strong>Let’s get you on the pitch</strong></div></div>
       <a class="contact-detail phone-detail" href="tel:+917827444706"><small>Call us</small><strong>+91 78274 44706</strong></a>
-      <address class="contact-detail"><small>Find us</small><strong>C44R+CW, Balola,<br>Bandhwari, Gurugram,<br>Haryana 122101</strong></address>
+      <a class="contact-detail address-detail" href="https://www.google.com/maps/search/?api=1&query=C44R%2BCW%2C%20Balola%2C%20Bandhwari%2C%20Gurugram%2C%20Haryana%20122101" target="_blank" rel="noopener"><small>Find us ↗</small><strong>C44R+CW, Balola,<br>Bandhwari, Gurugram,<br>Haryana 122101</strong></a>
     </section>
 
     <section class="section-intro" id="facilities">
@@ -62,13 +62,27 @@
     </section>
 
     <section class="facility-grid" id="experience">
-      <article class="facility-card feature-card" data-title="Match-ready pitches" data-description="Pro-grade turf and a true bounce, prepared for club matches, weekend leagues, and your next big innings." data-image="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1000&q=85"><span class="card-number">01 / 03</span><img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1000&q=85" alt="Cricket player batting on a field"><div class="pitch-mark"></div><h3>Match-ready<br>pitches</h3><p>Pro-grade turf, true bounce, every time.</p><button class="card-open" type="button" aria-label="View match-ready pitches">↗</button></article>
-      <article class="facility-card dark-card" data-title="Lights that stay on" data-description="Keep the game going after sunset with a fully lit arena and a pitch that is ready for late-night fixtures." data-image="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1000&q=85"><span class="card-number">02 / 03</span><img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1000&q=85" alt="Cricket player batting on a field"><span class="facility-icon">◒</span><h3>Lights that<br>stay on</h3><p>Play under the lights until 11 PM.</p><button class="card-open" type="button" aria-label="View evening cricket">↗</button></article>
-      <article class="facility-card cream-card" data-title="Train like the pros" data-description="Build confidence with focused coaching sessions designed for beginners, teams, and ambitious young players." data-image="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1000&q=85"><span class="card-number">03 / 03</span><img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1000&q=85" alt="Cricket stadium viewed from the pitch"><span class="facility-icon">✦</span><h3>Train like<br>the pros</h3><p>Private coaching for every level.</p><button class="card-open" type="button" aria-label="View coaching details">↗</button></article>
+      <article class="facility-card feature-card"><span class="card-number">01 / 03</span><img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1000&q=85" alt="Cricket player batting on a field"><div class="pitch-mark"></div><h3>Match-ready<br>pitches</h3><details><summary>View details</summary><p>Pro-grade turf and a true bounce, prepared for club matches, weekend leagues, and your next big innings.</p></details></article>
+      <article class="facility-card dark-card"><span class="card-number">02 / 03</span><img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1000&q=85" alt="Cricket player batting on a field"><span class="facility-icon">◒</span><h3>Lights that<br>stay on</h3><details><summary>View details</summary><p>Keep the game going after sunset with a fully lit arena and a pitch ready for late-night fixtures.</p></details></article>
+      <article class="facility-card cream-card"><span class="card-number">03 / 03</span><img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1000&q=85" alt="Cricket stadium viewed from the pitch"><span class="facility-icon">✦</span><h3>Train like<br>the pros</h3><details><summary>View details</summary><p>Build confidence with focused coaching sessions designed for beginners, teams, and ambitious young players.</p></details></article>
+    </section>
+
+    <section class="match-lab" id="matchLab">
+      <div class="lab-heading"><p class="eyebrow"><span></span> Play with the numbers</p><h2>Your match,<br><em>your call.</em></h2><p>Explore a quick match-day dashboard while you plan your next game at YES.</p></div>
+      <div class="scoreboard" aria-label="Interactive cricket scoreboard">
+        <div class="scoreboard-top"><span class="live-dot"></span><span>Practice innings</span><strong id="inningsMode">BATTING</strong></div>
+        <div class="score-main"><span id="runsDisplay">0</span><span class="wicket-count">/<b id="wicketsDisplay">0</b></span><small>runs</small></div>
+        <div class="score-meta"><span>Overs <b id="oversDisplay">0.0</b></span><span>Run rate <b id="runRateDisplay">0.00</b></span><span>Target <b id="targetDisplay">8.0</b></span></div>
+        <div class="over-dots" id="overDots" aria-label="Balls played"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="score-controls"><button type="button" data-run="1">+1</button><button type="button" data-run="4">+4</button><button type="button" data-run="6">+6</button><button type="button" data-wicket="true">Wicket</button><button type="button" id="resetScore">Reset</button></div>
+      </div>
+      <div class="lab-controls">
+        <div class="mode-switch" role="group" aria-label="Choose match mode"><span>Mode</span><button class="mode-choice active" type="button" data-mode="BATTING">Batting</button><button class="mode-choice" type="button" data-mode="BOWLING">Bowling</button></div>
+        <label class="target-control" for="targetRate">Target run rate <output id="targetRateOutput">8.0</output><input id="targetRate" type="range" min="4" max="14" step="0.5" value="8"></label>
+        <p class="lab-note" id="labNote">Tap the score controls to build an innings.</p>
+      </div>
     </section>
   </main>
-
-  <dialog class="detail-dialog" id="detailDialog"><button class="dialog-close" type="button" aria-label="Close details">×</button><img id="dialogImage" src="" alt=""><div class="dialog-copy"><p class="eyebrow"><span></span> YES Cricket Arena</p><h2 id="dialogTitle"></h2><p id="dialogDescription"></p><a class="primary-button" href="#contact">Call to enquire <span aria-hidden="true">↗</span></a></div></dialog>
 
   <footer><div class="footer-brand"><img src="watermarked_img_6944673300119660514.jpg" alt="YES Cricket Arena logo"><span>YES <b>CRICKET ARENA</b></span></div><p>Play hard. Play together.</p><a href="tel:+917827444706">+91 78274 44706 ↗</a><small>© 2026 YES Cricket Arena</small></footer>
 
