@@ -3,27 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First Website</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="YES Cricket Arena - premium cricket grounds, coaching, and match-day experiences.">
+  <meta name="theme-color" content="#101415">
+  <title>YES Cricket Arena | Play Your Best Game</title>
+  <link rel="icon" href="watermarked_img_6944673300119660514.jpg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>Welcome to My Website</h1>
-    <p>Hosted for free using Git and Render</p>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="YES Cricket Arena home">
+      <img src="watermarked_img_6944673300119660514.jpg" alt="YES Cricket Arena logo">
+      <span>YES <b>CRICKET ARENA</b></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#facilities">The arena</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">☰</button>
+    <a class="header-cta" href="#contact">Call to enquire <span aria-hidden="true">↗</span></a>
   </header>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="#facilities">The arena</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+  </nav>
 
-  <main>
-    <h2>Hello, World!</h2>
-    <p>This is a complete static website setup including HTML, CSS, and JavaScript files.</p>
-    
-    <button id="clickBtn" class="button">Click Me</button>
-    <p id="message" class="message-text"></p>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Where the game lives</p>
+        <h1>Make your<br><em>innings</em> count.</h1>
+        <p class="hero-text">Premium cricket grounds for big ambitions, close finishes, and every match in between.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#contact">Plan your visit <span aria-hidden="true">↗</span></a>
+          <a class="text-link" href="#facilities">Explore the arena <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="circle-label">EST.<br><strong>2016</strong></div>
+        <div class="hero-ring"></div>
+        <div class="hero-ball" aria-hidden="true"></div>
+        <div class="hero-stat"><strong>01</strong><span>Premium<br>match ground</span></div>
+      </div>
+    </section>
+
+    <section class="contact-strip" id="contact">
+      <div class="contact-heading"><span class="live-dot"></span><div><small>Bookings by phone</small><strong>Let’s get you on the pitch</strong></div></div>
+      <a class="contact-detail phone-detail" href="tel:+917827444706"><small>Call us</small><strong>+91 78274 44706</strong></a>
+      <address class="contact-detail"><small>Find us</small><strong>C44R+CW, Balola,<br>Bandhwari, Gurugram,<br>Haryana 122101</strong></address>
+    </section>
+
+    <section class="section-intro" id="facilities">
+      <div><p class="eyebrow"><span></span> More than a ground</p><h2>Built for the<br><em>love</em> of cricket.</h2></div>
+      <p class="section-description">From your first warm-up to the final over, every detail at YES is made to give your game the stage it deserves.</p>
+    </section>
+
+    <section class="facility-grid" id="experience">
+      <article class="facility-card feature-card" data-title="Match-ready pitches" data-description="Pro-grade turf and a true bounce, prepared for club matches, weekend leagues, and your next big innings." data-image="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1000&q=85"><span class="card-number">01 / 03</span><img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1000&q=85" alt="Cricket player batting on a field"><div class="pitch-mark"></div><h3>Match-ready<br>pitches</h3><p>Pro-grade turf, true bounce, every time.</p><button class="card-open" type="button" aria-label="View match-ready pitches">↗</button></article>
+      <article class="facility-card dark-card" data-title="Lights that stay on" data-description="Keep the game going after sunset with a fully lit arena and a pitch that is ready for late-night fixtures." data-image="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1000&q=85"><span class="card-number">02 / 03</span><img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1000&q=85" alt="Cricket player batting on a field"><span class="facility-icon">◒</span><h3>Lights that<br>stay on</h3><p>Play under the lights until 11 PM.</p><button class="card-open" type="button" aria-label="View evening cricket">↗</button></article>
+      <article class="facility-card cream-card" data-title="Train like the pros" data-description="Build confidence with focused coaching sessions designed for beginners, teams, and ambitious young players." data-image="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1000&q=85"><span class="card-number">03 / 03</span><img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1000&q=85" alt="Cricket stadium viewed from the pitch"><span class="facility-icon">✦</span><h3>Train like<br>the pros</h3><p>Private coaching for every level.</p><button class="card-open" type="button" aria-label="View coaching details">↗</button></article>
+    </section>
   </main>
 
-  <footer>
-    <p>&copy; 2026 My Static Website</p>
-  </footer>
+  <dialog class="detail-dialog" id="detailDialog"><button class="dialog-close" type="button" aria-label="Close details">×</button><img id="dialogImage" src="" alt=""><div class="dialog-copy"><p class="eyebrow"><span></span> YES Cricket Arena</p><h2 id="dialogTitle"></h2><p id="dialogDescription"></p><a class="primary-button" href="#contact">Call to enquire <span aria-hidden="true">↗</span></a></div></dialog>
+
+  <footer><div class="footer-brand"><img src="watermarked_img_6944673300119660514.jpg" alt="YES Cricket Arena logo"><span>YES <b>CRICKET ARENA</b></span></div><p>Play hard. Play together.</p><a href="tel:+917827444706">+91 78274 44706 ↗</a><small>© 2026 YES Cricket Arena</small></footer>
 
   <script src="script.js"></script>
 </body>
