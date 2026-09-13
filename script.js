@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
+	const contactIntent = `${window.location.pathname} ${window.location.search}`.toLowerCase();
+	if (contactIntent.includes("%23contact") || /contact|contacts|phone|email|address/.test(contactIntent)) {
+		window.history.replaceState(null, "", `${window.location.pathname.split("%23")[0]}#contact`);
+		requestAnimationFrame(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }));
+	}
 	const matchLab = document.getElementById("matchLab");
 	const sections = document.querySelectorAll("#facilities, #experience, #contact");
 	const navLinks = document.querySelectorAll(".main-nav a");
